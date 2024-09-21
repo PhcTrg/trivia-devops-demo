@@ -7,6 +7,10 @@ phases:
       - pyenv global 3.7.17
       - pip install aws-sam-cli
       - sam --version # Check if SAM CLI is installed correctly
+
+      - echo Installing Python 3.9
+      - sudo yum install python39 -y # For Amazon Linux environments
+      - python3.9 --version # Confirm the correct version is installed
   build:
     commands:
       - sam build
