@@ -12,8 +12,15 @@ phases:
       - sudo apt-get update -y
       - sudo apt-get install python3.9 -y
       - python3.9 --version # Confirm the correct version is installed
+
+      # Install pip for Python 3.9
+      - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+      - python3.9 get-pip.py
+      - python3.9 -m pip --version # Verify pip installation for Python 3.9
+
   build:
     commands:
+      - python3.9 -m pip install -r requirements.txt # Ensure dependencies are installed
       - sam build
       - sam deploy --no-fail-on-empty-changeset
       - cd front-end-react
