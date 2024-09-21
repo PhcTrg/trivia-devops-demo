@@ -20,7 +20,8 @@ phases:
 
   build:
     commands:
-      - python3.9 -m pip install -r requirements.txt # Ensure dependencies are installed
+      - pip3 install -U -r back-end-python/gameactions/requirements.txt
+      - pip3 install -U -r back-end-python/tests/requirements.txt
       - sam build
       - sam deploy --no-fail-on-empty-changeset
       - cd front-end-react
